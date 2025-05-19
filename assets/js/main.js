@@ -61,7 +61,7 @@
     document.getElementById('downloadBtn').addEventListener('click', function() {
         // Make sure to use a relative path starting from the repository root
         // For GitHub Pages, it's best to use the full path from the repository base
-        const pdfUrl = './assets/resume.pdf';
+        const pdfUrl = './assets/img/resume.pdf';
         
         // For direct download from GitHub
         window.open(pdfUrl, '_blank');

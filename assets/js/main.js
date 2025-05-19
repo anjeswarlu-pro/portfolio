@@ -57,28 +57,29 @@
       e.stopImmediatePropagation();
     });
   });
-  document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('downloadBtn').addEventListener('click', function() {
-        // Option 1: If the PDF is hosted on your server
-        const pdfUrl = "assets/img";
+        // Make sure to use a relative path starting from the repository root
+        // For GitHub Pages, it's best to use the full path from the repository base
+        const pdfUrl = './assets/resume.pdf';
         
-        // Create an anchor element
+        // For direct download from GitHub
+        window.open(pdfUrl, '_blank');
+        
+        // Alternative direct download approach that works on GitHub Pages
+        // This creates a direct link that forces the browser to download rather than view
+        /*
         const link = document.createElement('a');
         link.href = pdfUrl;
-        link.download = 'Anjeswarlu-cyber.pdf'; // Suggested filename
-        
-        // Programmatically click the link to trigger the download
+        link.setAttribute('download', 'document.pdf');
+        link.setAttribute('target', '_blank');
+        link.style.display = 'none';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        
-        /* 
-        // Option 2: For generating a PDF dynamically (requires a PDF generation library)
-        // This is commented out as it would require additional libraries like jsPDF
-        // const doc = new jsPDF();
-        // doc.text("Hello world!", 10, 10);
-        // doc.save("generated-document.pdf");
         */
+        
+        console.log('Download button clicked - attempting to download: ' + pdfUrl);
     });
 });
    
